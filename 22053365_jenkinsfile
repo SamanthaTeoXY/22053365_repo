@@ -9,8 +9,11 @@ pipeline {
       }
      stage('22053365STG2'){
        steps{
-       Execute "bot script run '/.../22053365_script" -------------------------------
-       echo '22053365STG1: Push change to productino web server?'
+       sh "'#!/bin/bash
+       targets=22053365_websvr;
+       locate_script='/tmp/22053365/clone/22053365_repo/22053365_script';
+       bolt script run $locate_script -t $targets -u clientadm -p user123 --no-host-key-check --run-as root; 22053365_script" ---------------------
+       echo '22053365STG1: Push change to production web server?'
      }
      }
      stage('22053365STG3'){
