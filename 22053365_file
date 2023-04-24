@@ -1,0 +1,51 @@
+pipeline {
+  agent any
+  stages{
+    stage('22053365STG1'){
+    steps {
+      echo '22053365STG1: Push change to productino web server?'
+      input('Proceed or Abort?')
+      }
+      }
+     stage('22053365STG2'){
+       steps{
+       Execute "bot script run '/.../22053365_script" -------------------------------
+       echo '22053365STG1: Push change to productino web server?'
+     }
+     }
+     stage('22053365STG3'){
+     steps {
+      echo '22053365STG3: Proceed to test production web service?'
+      input('Proceed or Abort?')
+      }
+      }
+     stage('22053365STG4'){
+     steps {
+      Execute "curl '/.../22053365_script" -------------------------------
+      echo '22053365STG4: Production web server testing completed'
+      
+      }
+      }
+     stage('22053365STG5'){
+     steps {
+ 
+      echo '22053365STG5: Web server testing result has been inspected'
+      input('Proceed or Abort?')
+      
+      }
+      }
+     stage('22053365STG6'){
+     steps {
+ 
+      echo '22053365STG6: Production Operation is successful'
+     
+      
+      }
+      }
+     
+     
+     
+   }  
+     
+     
+      }
