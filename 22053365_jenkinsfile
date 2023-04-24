@@ -21,7 +21,7 @@ pipeline {
       }
      stage('22053365STG4'){
      steps {
-      Execute "curl '/.../22053365_script" -------------------------------
+      Execute "curl -ls http://22053365-websvr.localdomain |head -n 1 > /tmp/web-test-result"---------------------
       echo '22053365STG4: Production web server testing completed'
       
       }
