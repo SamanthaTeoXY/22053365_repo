@@ -1,1 +1,10 @@
-
+#!/bin/bash
+puppet resource package apache2 ensure=present
+puppet resource package apache2 ensure=running
+puppet resource file /tmp/22053365/clone ensure=absent force=true
+puppet resource file /tmp ensure=directory
+puppet resource file /tmp/22053365 ensure=directory
+puppet resource file /tmp/22053365/clone ensure=directory
+cd /tmp/22053365/clone
+git clone https://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@github.com/SamanthaTeoXY/22053365_repo.git
+cp -p /tmp/22053365/clone/22053365_repo/index.html /var/www/html/index.html
